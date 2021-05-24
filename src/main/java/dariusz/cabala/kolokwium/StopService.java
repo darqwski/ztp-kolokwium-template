@@ -16,7 +16,7 @@ public class StopService {
     public String increment(
     ){
         try {
-            counterResource.stop(context);
+            counterResource.stop();
         } catch (Exception e){
             e.printStackTrace();
         }

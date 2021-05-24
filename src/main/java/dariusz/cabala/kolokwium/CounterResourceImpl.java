@@ -3,55 +3,52 @@ package dariusz.cabala.kolokwium;
 import javax.servlet.ServletContext;
 import java.util.HashMap;
 
+import static dariusz.cabala.kolokwium.KolokwiumApplication.*;
+
 public class CounterResourceImpl implements CounterResourceInterface{
 
     @Override
-    public int counter(ServletContext context) {
-        return (int)context.getAttribute("counter");
+    public int counter() {
+        return counter;
     }
 
     @Override
-    public int error(ServletContext context) {
-        return (int)context.getAttribute("error");
+    public int error() {
+        return error;
     }
 
     @Override
-    public String addCounter(ServletContext context, int n) {
-        int currentCounter = counter(context);
-        boolean isStarted =  (boolean)context.getAttribute("isStarted");
+    public String addCounter(int n) {
 
         if(isStarted){
-            context.setAttribute("counter", currentCounter+n);
+            counter+=n;
             return "Counter has been incremented";
         } else {
-            incrementError(context);
+            incrementError();
             return "CounterService is not started";
         }
     }
 
     @Override
-    public void incrementError(ServletContext context) {
-        int errorCounter = (int)context.getAttribute("error");
-        context.setAttribute("error", errorCounter+1);
+    public void incrementError() {
+        error+=1;
     }
 
     @Override
-    public void start(ServletContext context) {
-        boolean isStarted =  (boolean)context.getAttribute("isStarted");
+    public void start() {
         if(isStarted){
-            incrementError(context);
+            incrementError();
         } else {
-            context.setAttribute("isStarted", true);
+            isStarted=true;
         }
     }
 
     @Override
-    public void stop(ServletContext context) {
-        boolean isStarted =  (boolean)context.getAttribute("isStarted");
+    public void stop() {
         if(isStarted){
-            context.setAttribute("isStarted", false);
+            isStarted=false;
         } else {
-            incrementError(context);
+            incrementError();
         }
     }
 }

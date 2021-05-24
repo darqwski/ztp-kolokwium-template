@@ -17,7 +17,7 @@ public class CounterService {
     public String counter(
     ){
         try {
-            return ""+counterResource.counter(context);
+            return ""+counterResource.counter();
         } catch (Exception e){
             e.printStackTrace();
             return "";

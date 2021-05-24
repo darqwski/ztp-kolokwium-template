@@ -17,7 +17,7 @@ public class StartService {
     public String increment(
     ){
         try {
-            counterResource.start(context);
+            counterResource.start();
         } catch (Exception e){
             e.printStackTrace();
         }

@@ -17,7 +17,7 @@ public class ErrorService {
     public String increment(
     ){
         try {
-            return ""+counterResource.error(context);
+            return ""+counterResource.error();
         }catch (Exception e){
             e.printStackTrace();
             return "";
