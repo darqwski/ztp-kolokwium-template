@@ -4,11 +4,10 @@ import javax.inject.Inject;
 import javax.servlet.ServletContext;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
 import javax.ws.rs.core.Context;
 
-@Path("/counter")
-public class CounterService {
+@Path("/stop")
+public class StopService {
     @Context
     ServletContext context;
     @Inject
@@ -16,7 +15,8 @@ public class CounterService {
     @GET
     public String increment(
     ){
-        return ""+counterResource.counter(context);
+        counterResource.stop(context);
+        return "Hello increment";
     }
 
 }

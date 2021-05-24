@@ -18,23 +18,9 @@ public class Listener implements ServletContextListener, HttpSessionListener, Ht
     @Override
     public void contextInitialized(ServletContextEvent sce) {
 
-        HashMap<String, Plane> planes = new HashMap<>();
-        for(int i=0;i< 10;i++){
-            double longitude = Math.random()*360 - 180;
-            double latitude = Math.random()*360 - 180;
-            int capacity = (int)Math.round(Math.random()*10);
-            String name = "Plane "+i;
-            planes.put(
-                    name,
-                    new Plane(
-                            name,
-                            latitude,
-                            longitude,
-                            capacity
-                    )
-            );
-        }
-        sce.getServletContext().setAttribute("planes",planes);
+        sce.getServletContext().setAttribute("counter",0);
+        sce.getServletContext().setAttribute("error",0);
+        sce.getServletContext().setAttribute("isStarted",false);
     }
 
     @Override

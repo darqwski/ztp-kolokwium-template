@@ -7,8 +7,8 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.Context;
 
-@Path("/counter")
-public class CounterService {
+@Path("/error")
+public class ErrorService {
     @Context
     ServletContext context;
     @Inject
@@ -16,7 +16,7 @@ public class CounterService {
     @GET
     public String increment(
     ){
-        return ""+counterResource.counter(context);
+        return ""+counterResource.error(context);
     }
 
 }
