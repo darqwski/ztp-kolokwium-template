@@ -14,9 +14,14 @@ public class CounterService {
     @Inject
     CounterResourceInterface counterResource;
     @GET
-    public String increment(
+    public String counter(
     ){
-        return ""+counterResource.counter(context);
+        try {
+            return ""+counterResource.counter(context);
+        } catch (Exception e){
+            e.printStackTrace();
+            return "";
+        }
     }
 
 }

@@ -16,14 +16,16 @@ public class CounterResourceImpl implements CounterResourceInterface{
     }
 
     @Override
-    public void addCounter(ServletContext context, int n) {
+    public String addCounter(ServletContext context, int n) {
         int currentCounter = counter(context);
         boolean isStarted =  (boolean)context.getAttribute("isStarted");
 
         if(isStarted){
             context.setAttribute("counter", currentCounter+n);
+            return "Counter has been incremented";
         } else {
             incrementError(context);
+            return "CounterService is not started";
         }
     }
 

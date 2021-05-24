@@ -16,7 +16,12 @@ public class ErrorService {
     @GET
     public String increment(
     ){
-        return ""+counterResource.error(context);
+        try {
+            return ""+counterResource.error(context);
+        }catch (Exception e){
+            e.printStackTrace();
+            return "";
+        }
     }
 
 }

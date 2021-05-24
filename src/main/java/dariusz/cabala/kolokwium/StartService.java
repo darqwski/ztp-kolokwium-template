@@ -16,13 +16,12 @@ public class StartService {
     @GET
     public String increment(
     ){
-        try{
+        try {
             counterResource.start(context);
-
-        }catch (Exception e){
+        } catch (Exception e){
             e.printStackTrace();
         }
-        return "Hello increment";
+        return "Service is started";
     }
 
 }

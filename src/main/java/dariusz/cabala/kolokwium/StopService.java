@@ -15,8 +15,12 @@ public class StopService {
     @GET
     public String increment(
     ){
-        counterResource.stop(context);
-        return "Hello increment";
+        try {
+            counterResource.stop(context);
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return "Service is stopped";
     }
 
 }

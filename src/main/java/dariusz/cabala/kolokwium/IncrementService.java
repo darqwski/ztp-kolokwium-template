@@ -16,14 +16,12 @@ public class IncrementService {
     @GET
     public String increment(
     ){
-        counterResource.addCounter(context, 1);
-        return "";
+        return counterResource.addCounter(context, 1);
     }
     @GET
     @Path("/{n}")
     public String addN(@PathParam("n") int n) {
-        counterResource.addCounter(context, n);
-        return "";
+        return counterResource.addCounter(context, n);
     }
 
 }
